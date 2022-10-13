@@ -8,7 +8,7 @@ export default function SearchBar({ onSubmit }) {
     await onSubmit(values);
 
     actions.setSubmitting(false);
-    // actions.resetForm();
+    actions.resetForm();
   };
   return (
     <Formik initialValues={{ searchQuery: '' }} onSubmit={handleSubmit}>
