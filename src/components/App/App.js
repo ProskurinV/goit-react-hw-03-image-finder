@@ -38,13 +38,16 @@ export default class App extends Component {
   }
 
   handlerFormSubmit = values => {
-    this.setState({
-      page: 1,
-      isLoading: false,
-      error: false,
-      items: [],
-      query: values.searchQuery.trim(),
-    });
+    const { query } = this.state;
+    if (query !== values.searchQuery.trim()) {
+      this.setState({
+        page: 1,
+        isLoading: false,
+        error: false,
+        items: [],
+        query: values.searchQuery.trim(),
+      });
+    }
   };
 
   fetchImg = async (query, page) => {
